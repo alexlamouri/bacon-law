@@ -50,9 +50,7 @@ public class computeBaconPath implements HttpHandler {
                                         
                     // Check if actor is Kevin Bacon
                     if (actorId.equals("nm0000102")) { 
-                    	
-                    	System.out.println(1);
-                    	
+                   
 //                    	// Find Kevin Bacon Movie
 //                    	StatementResult baconPathResult = tx.run("MATCH (a:actor)-[:ACTED_IN]->(m:movie) "
 //                    			+ "WHERE a.id = $baconId"
@@ -64,8 +62,6 @@ public class computeBaconPath implements HttpHandler {
 	                    json.put("baconNumber", 0);
 	                    json.put("baconPath", new ArrayList<Object>());
 	                    
-	                    System.out.println(6);
-	                  
 	                    // Convert the JSON Body to a String and send it as a Response
 	                    String response = json.toString();
 	                    r.sendResponseHeaders(200, response.length());
@@ -73,8 +69,6 @@ public class computeBaconPath implements HttpHandler {
 	                    output.write(response.getBytes());
 	                    output.close();
 	                    tx.success();
-	                    
-	                    System.out.println(7);
                     }
                     
                     else {
