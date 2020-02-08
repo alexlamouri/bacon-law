@@ -50,7 +50,7 @@ public class addActor implements HttpHandler {
                     }
             		
             		// ERROR : Duplicate actor for actorId
-            		if (tx.run ("MATCH (a:actor) WHERE a.id = $actorId RETURN a", parameters("actorId", actorId)).hasNext()) {
+            		if (tx.run ("MATCH (a:actor) WHERE a.id = $actorId RETURN a.id", parameters("actorId", actorId)).hasNext()) {
             			r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
             			tx.failure();
             		}
@@ -65,8 +65,12 @@ public class addActor implements HttpHandler {
             }
         } 
         
-        // ERROR : Java Exception
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }

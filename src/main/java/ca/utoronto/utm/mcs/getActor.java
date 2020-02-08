@@ -50,23 +50,26 @@ public class getActor implements HttpHandler {
                     ArrayList<String> movies = new ArrayList<String>(1024);
                     
                     // 4. Check if actor node exists for id
-            		StatementResult result = tx.run (
+            		StatementResult actorResult = tx.run (
                             "MATCH (a:actor) WHERE a.id = $actorId RETURN a.Name",
                             parameters("actorId", actorId)
                     );
             		
             		// 5. Get parameters from Database
-            		if (result.hasNext()) {
+            		if (actorResult.hasNext()) {
             			
             			// 5.1 Get name parameter from Database
-            			Record record = result.next();
-            			name = record.get("a.Name").asString();
+            			name = actorResult.next().get("a.Name").asString();
                
             			// 5.2 Accumulate movies parameter from Database
-            			result = tx.run("MATCH (a:actor {id : $actorId})-[r:ACTED_IN]->(m:movie) RETURN m.id", parameters("actorId", actorId));
-            			while (result.hasNext()) {
-            				record = result.next();
-            				movieId = record.get("m.id").asString();
+            			StatementResult moviesResult = tx.run(
+            					"MATCH (a:actor {id : $actorId})-[r:ACTED_IN]->(m:movie) "
+            					+ "RETURN m.id", 
+            					parameters("actorId", actorId));
+            			
+            			while (moviesResult.hasNext()) {
+            				Record moviesRecord = moviesResult.next();
+            				movieId = moviesRecord.get("m.id").asString();
             				movies.add(movieId);
             			}
             			
@@ -93,8 +96,12 @@ public class getActor implements HttpHandler {
             }
         } 
         
-        // Java Exception
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }

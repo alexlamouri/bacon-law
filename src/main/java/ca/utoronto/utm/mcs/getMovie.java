@@ -50,20 +50,27 @@ public class getMovie implements HttpHandler {
                     ArrayList<String> actors = new ArrayList<String>(1024);
                     
                     // 4. Check if movie node exists for id
-                    StatementResult result = tx.run ("MATCH (m:movie) WHERE m.id = $movieId RETURN m.Name", parameters("movieId", movieId));
+                    StatementResult movieResult = tx.run (
+                    		"MATCH (m:movie) WHERE m.id = $movieId "
+                    		+ "RETURN m.Name", 
+                    		parameters("movieId", movieId));
                     
                     // 5. Get parameters from Database
-                    if (result.hasNext()) {
+                    if (movieResult.hasNext()) {
                         
                         // 5.1 Get name parameter from Database
-                        Record record = result.next();
-                        name = record.get("m.Name").asString();
+                        Record movieRecord = movieResult.next();
+                        name = movieRecord.get("m.Name").asString();
                         
                         // 5.2 Accumulate actors parameter from Database
-                        result = tx.run("MATCH (m:movie {id: $movieId})<-[r:ACTED_IN]-(a:actor) RETURN a.id", parameters("movieId", movieId));
-                        while (result.hasNext()) {
-                            record = result.next();
-                            actorId = record.get("a.id").asString();
+                        StatementResult actorsResult = tx.run(
+                        		"MATCH (m:movie {id: $movieId})<-[r:ACTED_IN]-(a:actor) "
+                        		+ "RETURN a.id", 
+                        		parameters("movieId", movieId));
+                        
+                        while (actorsResult.hasNext()) {
+                            Record actorsRecord = actorsResult.next();
+                            actorId = actorsRecord.get("a.id").asString();
                             actors.add(actorId);
                         }
                         
@@ -90,8 +97,12 @@ public class getMovie implements HttpHandler {
             }     
         } 
         
-        // Java Exception
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }

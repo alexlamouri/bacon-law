@@ -15,7 +15,7 @@ public class App
     {
  
     	// New neo4j server to graph results
-        Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "1234"));
+    	Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "1234"));
         
         HttpServer server = HttpServer.create(new InetSocketAddress("0.0.0.0", PORT), 0);
 
@@ -41,7 +41,7 @@ public class App
         server.createContext("/api/v1/computeBaconNumber", new computeBaconNumber(driver.session()));
         
         // 7.8 GET​ ​/api/v1/computerBaconPath
-        // server.createContext("/api/v1/computerBaconNumber", new computeBaconNumber(driver.session()));
+        server.createContext("/api/v1/computeBaconPath", new computeBaconPath(driver.session()));
         
         server.start();
         System.out.printf("Server started on port %d...\n", PORT);

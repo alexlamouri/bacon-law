@@ -50,7 +50,7 @@ public class addMovie implements HttpHandler {
                     }
             		
             		// 5. Check if existing movie for movieId
-            		if (tx.run ("MATCH (m:movie) WHERE m.id = $movieId RETURN m", parameters("movieId", movieId)).hasNext()) {
+            		if (tx.run ("MATCH (m:movie) WHERE m.id = $movieId RETURN m.id", parameters("movieId", movieId)).hasNext()) {
             			r.sendResponseHeaders(400, -1); // 400 BAD REQUEST 
             			tx.failure();
             		}
@@ -65,8 +65,12 @@ public class addMovie implements HttpHandler {
             }     
         } 
         
-        // Java Exception
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }

@@ -45,9 +45,8 @@ public class hasRelationship implements HttpHandler {
                     // Check request body format & information
                     if (actorId.isEmpty() || movieId.isEmpty()) {
                     	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
-                    	tx.failure();;
+                    	tx.failure();
                     }
-                    
                     
                     // Check if actor node exists for id
             		if (!tx.run("MATCH (a:actor) WHERE a.id = $actorId RETURN a", parameters("actorId", actorId)).hasNext()) {
@@ -62,20 +61,10 @@ public class hasRelationship implements HttpHandler {
             			tx.failure();
             		}
             		
-            		
                     // Check if existing node for id
             		// https://stackoverflow.com/questions/42022215/test-if-relationship-exists-in-neo4j-spring-data
-            		StatementResult result = tx.run ("RETURN EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))", parameters("actorId", actorId.toString(), "movieId", movieId.toString())); 
-            		String exists = result.next().get("EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))").toString();
-            		boolean hasRelationship;
-            		
-            		if (exists == "TRUE") {
-            			hasRelationship = true;
-            		}
-            		
-            		else {
-            			hasRelationship = false;
-            		}
+            		StatementResult relationshipResult = tx.run("RETURN EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))", parameters("actorId", actorId.toString(), "movieId", movieId.toString())); 
+            		boolean hasRelationship = relationshipResult.next().get("EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))").asBoolean();
             		
             		// Create JSON Body and add the Body Parameters
                     JSONObject json = new JSONObject();
@@ -94,7 +83,12 @@ public class hasRelationship implements HttpHandler {
             }  
         } 
         
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }

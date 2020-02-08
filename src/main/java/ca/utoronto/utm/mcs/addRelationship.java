@@ -48,7 +48,6 @@ public class addRelationship implements HttpHandler {
                     	tx.failure();
                     }
                     
-                    
                     // Check if actor node exists for id
             		if (!tx.run ("MATCH (a:actor) WHERE a.id = $actorId RETURN a", parameters("actorId", actorId)).hasNext()) {
             			r.sendResponseHeaders(404, -1); // 404 NOT FOUND
@@ -61,14 +60,13 @@ public class addRelationship implements HttpHandler {
             			r.sendResponseHeaders(404, -1); // 404 NOT FOUND
             			tx.failure();
             		}
-            		
-            		
+
                     // Check if existing relationship node for actor and movie
             		// https://stackoverflow.com/questions/42022215/test-if-relationship-exists-in-neo4j-spring-data
-            		StatementResult result = tx.run ("RETURN EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))", parameters("actorId", actorId.toString(), "movieId", movieId.toString())); 
-            		String exists = result.next().get("EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))").toString();
+            		StatementResult relationshipResult = tx.run("RETURN EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))", parameters("actorId", actorId.toString(), "movieId", movieId.toString())); 
+            		boolean hasRelationship = relationshipResult.next().get("EXISTS((:actor {id: $actorId})-[:ACTED_IN]->(:movie {id: $movieId}))").asBoolean();
             		
-            		if (exists == "TRUE") {
+            		if (hasRelationship) {
             			r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
             			tx.failure();
             		}
@@ -82,7 +80,12 @@ public class addRelationship implements HttpHandler {
             }
         } 
         
-        catch (Exception e) {
+        catch (JSONException e) {
+        	r.sendResponseHeaders(400, -1); // 400 BAD REQUEST
+            e.printStackTrace();
+        }
+    	
+    	catch (IOException e) {
         	r.sendResponseHeaders(500, -1); // 500 INTERNAL SERVER ERROR
             e.printStackTrace();
         }
