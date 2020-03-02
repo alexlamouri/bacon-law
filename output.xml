@@ -1,0 +1,2977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.6 on linux)" generated="20200301 16:41:54.992" rpa="false">
+<suite id="s1" name="testPutAndGetTests" source="/virtual/maramgan/a1-repos/a1-02-27-2020-07-17-58/testPutAndGetTests.robot">
+<test id="s1-t1" name="TestAddActor200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.180" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.180" endtime="20200301 16:41:55.180"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.180" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.180" endtime="20200301 16:41:55.180"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Swetha Maramganty</arg>
+<arg>actorId=nm1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.180" level="INFO">${params} = {'name': 'Swetha Maramganty', 'actorId': 'nm1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.180" endtime="20200301 16:41:55.180"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.181" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Swetha Maramganty", "actorId": "nm1"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.211" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.181" endtime="20200301 16:41:55.211"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.211" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.211" endtime="20200301 16:41:55.211"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.179" endtime="20200301 16:41:55.211" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Test2AddActor200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.212" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.212" endtime="20200301 16:41:55.212"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.212" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.212" endtime="20200301 16:41:55.212"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Arnold Rosenbloom</arg>
+<arg>actorId=nm2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.213" level="INFO">${params} = {'name': 'Arnold Rosenbloom', 'actorId': 'nm2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.213" endtime="20200301 16:41:55.213"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.213" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Arnold Rosenbloom", "actorId": "nm2"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.237" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.213" endtime="20200301 16:41:55.237"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.237" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.237" endtime="20200301 16:41:55.237"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.212" endtime="20200301 16:41:55.237" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TestAddKevinBacon200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.238" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.238" endtime="20200301 16:41:55.238"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.238" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.238" endtime="20200301 16:41:55.238"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Kevin Bacon</arg>
+<arg>actorId=nm0000102</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.239" level="INFO">${params} = {'name': 'Kevin Bacon', 'actorId': 'nm0000102'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.238" endtime="20200301 16:41:55.239"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.239" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Kevin Bacon", "actorId": "nm0000102"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.245" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.239" endtime="20200301 16:41:55.245"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.245" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.245" endtime="20200301 16:41:55.245"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.237" endtime="20200301 16:41:55.245" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Test3AddActor200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.246" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.246" endtime="20200301 16:41:55.246"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.246" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.246" endtime="20200301 16:41:55.246"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Ilir Dema</arg>
+<arg>actorId=nm3</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.246" level="INFO">${params} = {'name': 'Ilir Dema', 'actorId': 'nm3'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.246" endtime="20200301 16:41:55.247"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.247" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Ilir Dema", "actorId": "nm3"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.252" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.247" endtime="20200301 16:41:55.252"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.253" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.252" endtime="20200301 16:41:55.253"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.245" endtime="20200301 16:41:55.253" critical="yes"></status>
+</test>
+<test id="s1-t5" name="TestAddActorKeepExistingNode400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.253" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.253" endtime="20200301 16:41:55.254"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.254" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.254" endtime="20200301 16:41:55.254"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Shabaz Badshah</arg>
+<arg>actorId=nm2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.254" level="INFO">${params} = {'name': 'Shabaz Badshah', 'actorId': 'nm2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.254" endtime="20200301 16:41:55.254"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.254" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Shabaz Badshah", "actorId": "nm2"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.260" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.254" endtime="20200301 16:41:55.260"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.260" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.260" endtime="20200301 16:41:55.260"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.253" endtime="20200301 16:41:55.260" critical="yes"></status>
+</test>
+<test id="s1-t6" name="TestAddActorBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.261" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.261" endtime="20200301 16:41:55.261"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.261" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.261" endtime="20200301 16:41:55.261"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Emma Stone</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.262" level="INFO">${params} = {'name': 'Emma Stone'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.262" endtime="20200301 16:41:55.262"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addActor</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.262" level="INFO">PUT Request using : uri=/api/v1/addActor, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Emma Stone"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.265" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.262" endtime="20200301 16:41:55.265"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.265" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.265" endtime="20200301 16:41:55.265"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.261" endtime="20200301 16:41:55.265" critical="yes"></status>
+</test>
+<test id="s1-t7" name="TestAddMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.266" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.266" endtime="20200301 16:41:55.266"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.266" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.266" endtime="20200301 16:41:55.266"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Up</arg>
+<arg>movieId=tt1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.267" level="INFO">${params} = {'name': 'Up', 'movieId': 'tt1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.267" endtime="20200301 16:41:55.267"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.267" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Up", "movieId": "tt1"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.274" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.267" endtime="20200301 16:41:55.274"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.274" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.274" endtime="20200301 16:41:55.275"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.266" endtime="20200301 16:41:55.275" critical="yes"></status>
+</test>
+<test id="s1-t8" name="Test2AddMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.276" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.276" endtime="20200301 16:41:55.276"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.276" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.276" endtime="20200301 16:41:55.276"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Harry Potter</arg>
+<arg>movieId=tt2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.276" level="INFO">${params} = {'name': 'Harry Potter', 'movieId': 'tt2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.276" endtime="20200301 16:41:55.276"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.277" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Harry Potter", "movieId": "tt2"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.283" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.277" endtime="20200301 16:41:55.283"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.283" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.283" endtime="20200301 16:41:55.283"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.275" endtime="20200301 16:41:55.283" critical="yes"></status>
+</test>
+<test id="s1-t9" name="Test3AddMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.284" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.284" endtime="20200301 16:41:55.284"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.285" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.285" endtime="20200301 16:41:55.285"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Patriots Day</arg>
+<arg>movieId=mv001</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.285" level="INFO">${params} = {'name': 'Patriots Day', 'movieId': 'mv001'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.285" endtime="20200301 16:41:55.285"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.285" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Patriots Day", "movieId": "mv001"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.290" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.285" endtime="20200301 16:41:55.290"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.290" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.290" endtime="20200301 16:41:55.290"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.283" endtime="20200301 16:41:55.291" critical="yes"></status>
+</test>
+<test id="s1-t10" name="Test4AddMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.291" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.291" endtime="20200301 16:41:55.291"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.292" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.291" endtime="20200301 16:41:55.292"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=LOTR</arg>
+<arg>movieId=mv002</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.292" level="INFO">${params} = {'name': 'LOTR', 'movieId': 'mv002'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.292" endtime="20200301 16:41:55.292"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.292" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "LOTR", "movieId": "mv002"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.297" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.292" endtime="20200301 16:41:55.297"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.297" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.297" endtime="20200301 16:41:55.297"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.291" endtime="20200301 16:41:55.298" critical="yes"></status>
+</test>
+<test id="s1-t11" name="Test5AddMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.298" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.298" endtime="20200301 16:41:55.298"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.299" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.298" endtime="20200301 16:41:55.299"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=RV</arg>
+<arg>movieId=mv003</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.299" level="INFO">${params} = {'name': 'RV', 'movieId': 'mv003'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.299" endtime="20200301 16:41:55.299"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.299" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "RV", "movieId": "mv003"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.304" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.299" endtime="20200301 16:41:55.304"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.305" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.304" endtime="20200301 16:41:55.305"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.298" endtime="20200301 16:41:55.305" critical="yes"></status>
+</test>
+<test id="s1-t12" name="TestAddMovieKeepExistingNode400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.306" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.305" endtime="20200301 16:41:55.306"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.306" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.306" endtime="20200301 16:41:55.306"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Cinderalla</arg>
+<arg>movieId=tt2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.306" level="INFO">${params} = {'name': 'Cinderalla', 'movieId': 'tt2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.306" endtime="20200301 16:41:55.306"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.307" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Cinderalla", "movieId": "tt2"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.312" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.306" endtime="20200301 16:41:55.312"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.312" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.312" endtime="20200301 16:41:55.312"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.305" endtime="20200301 16:41:55.312" critical="yes"></status>
+</test>
+<test id="s1-t13" name="TestAddMovieBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.313" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.313" endtime="20200301 16:41:55.313"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.313" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.313" endtime="20200301 16:41:55.313"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=Graduation</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.313" level="INFO">${params} = {'name': 'Graduation'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.313" endtime="20200301 16:41:55.314"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addMovie</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.314" level="INFO">PUT Request using : uri=/api/v1/addMovie, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Graduation"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.316" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.314" endtime="20200301 16:41:55.316"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.317" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.317" endtime="20200301 16:41:55.317"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.312" endtime="20200301 16:41:55.317" critical="yes"></status>
+</test>
+<test id="s1-t14" name="TestAddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.318" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.317" endtime="20200301 16:41:55.318"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.318" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.318" endtime="20200301 16:41:55.318"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm1</arg>
+<arg>movieId=tt1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.318" level="INFO">${params} = {'actorId': 'nm1', 'movieId': 'tt1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.318" endtime="20200301 16:41:55.318"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.319" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm1", "movieId": "tt1"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.337" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.318" endtime="20200301 16:41:55.337"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.338" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.337" endtime="20200301 16:41:55.338"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.317" endtime="20200301 16:41:55.338" critical="yes"></status>
+</test>
+<test id="s1-t15" name="Test2AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.338" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.338" endtime="20200301 16:41:55.339"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.339" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.339" endtime="20200301 16:41:55.339"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm1</arg>
+<arg>movieId=mv002</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.339" level="INFO">${params} = {'actorId': 'nm1', 'movieId': 'mv002'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.339" endtime="20200301 16:41:55.339"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.339" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm1", "movieId": "mv002"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.350" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.339" endtime="20200301 16:41:55.350"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.351" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.351" endtime="20200301 16:41:55.351"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.338" endtime="20200301 16:41:55.351" critical="yes"></status>
+</test>
+<test id="s1-t16" name="Test3AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.352" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.351" endtime="20200301 16:41:55.352"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.352" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.352" endtime="20200301 16:41:55.352"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm3</arg>
+<arg>movieId=tt2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.352" level="INFO">${params} = {'actorId': 'nm3', 'movieId': 'tt2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.352" endtime="20200301 16:41:55.352"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.353" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm3", "movieId": "tt2"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.359" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.353" endtime="20200301 16:41:55.359"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.359" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.359" endtime="20200301 16:41:55.359"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.351" endtime="20200301 16:41:55.359" critical="yes"></status>
+</test>
+<test id="s1-t17" name="Test4AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.360" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.360" endtime="20200301 16:41:55.360"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.361" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.360" endtime="20200301 16:41:55.361"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm3</arg>
+<arg>movieId=tt1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.361" level="INFO">${params} = {'actorId': 'nm3', 'movieId': 'tt1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.361" endtime="20200301 16:41:55.361"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.361" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm3", "movieId": "tt1"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.367" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.361" endtime="20200301 16:41:55.367"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.368" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.367" endtime="20200301 16:41:55.368"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.360" endtime="20200301 16:41:55.368" critical="yes"></status>
+</test>
+<test id="s1-t18" name="Test5AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.368" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.368" endtime="20200301 16:41:55.368"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.369" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.368" endtime="20200301 16:41:55.369"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+<arg>movieId=mv001</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.369" level="INFO">${params} = {'actorId': 'nm0000102', 'movieId': 'mv001'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.369" endtime="20200301 16:41:55.369"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.369" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm0000102", "movieId": "mv001"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.376" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.369" endtime="20200301 16:41:55.376"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.376" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.376" endtime="20200301 16:41:55.376"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.368" endtime="20200301 16:41:55.376" critical="yes"></status>
+</test>
+<test id="s1-t19" name="Test6AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.377" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.377" endtime="20200301 16:41:55.377"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.377" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.377" endtime="20200301 16:41:55.377"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+<arg>movieId=mv002</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.378" level="INFO">${params} = {'actorId': 'nm0000102', 'movieId': 'mv002'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.378" endtime="20200301 16:41:55.378"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.378" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm0000102", "movieId": "mv002"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.383" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.378" endtime="20200301 16:41:55.383"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.384" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.384" endtime="20200301 16:41:55.384"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.377" endtime="20200301 16:41:55.384" critical="yes"></status>
+</test>
+<test id="s1-t20" name="Test7AddRelation200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.385" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.384" endtime="20200301 16:41:55.385"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.385" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.385" endtime="20200301 16:41:55.385"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+<arg>movieId=mv003</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.385" level="INFO">${params} = {'actorId': 'nm0000102', 'movieId': 'mv003'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.385" endtime="20200301 16:41:55.385"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.386" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm0000102", "movieId": "mv003"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.392" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.385" endtime="20200301 16:41:55.392"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.392" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.392" endtime="20200301 16:41:55.392"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.384" endtime="20200301 16:41:55.392" critical="yes"></status>
+</test>
+<test id="s1-t21" name="TestAddRelationBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.393" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.393" endtime="20200301 16:41:55.393"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.393" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.393" endtime="20200301 16:41:55.393"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actor=nm0000102</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.393" level="INFO">${params} = {'actor': 'nm0000102'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.393" endtime="20200301 16:41:55.394"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.394" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actor": "nm0000102"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.397" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.394" endtime="20200301 16:41:55.397"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.397" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.397" endtime="20200301 16:41:55.397"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.392" endtime="20200301 16:41:55.397" critical="yes"></status>
+</test>
+<test id="s1-t22" name="TestAddRelationMovieNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.398" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.398" endtime="20200301 16:41:55.398"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.398" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.398" endtime="20200301 16:41:55.398"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+<arg>movieId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.399" level="INFO">${params} = {'actorId': 'nm0000102', 'movieId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.399" endtime="20200301 16:41:55.399"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.399" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "nm0000102", "movieId": "notexist"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.403" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.399" endtime="20200301 16:41:55.403"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.403" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.403" endtime="20200301 16:41:55.403"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.398" endtime="20200301 16:41:55.404" critical="yes"></status>
+</test>
+<test id="s1-t23" name="TestAddRelationActorNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.404" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.404" endtime="20200301 16:41:55.404"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.405" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.405" endtime="20200301 16:41:55.405"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+<arg>movieId=tt1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.405" level="INFO">${params} = {'actorId': 'notexist', 'movieId': 'tt1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.405" endtime="20200301 16:41:55.405"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.405" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "notexist", "movieId": "tt1"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.409" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.405" endtime="20200301 16:41:55.409"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.409" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.409" endtime="20200301 16:41:55.409"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.404" endtime="20200301 16:41:55.409" critical="yes"></status>
+</test>
+<test id="s1-t24" name="TestAddRelationBothNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.410" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.410" endtime="20200301 16:41:55.410"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.410" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.410" endtime="20200301 16:41:55.410"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+<arg>movieId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.411" level="INFO">${params} = {'actorId': 'notexist', 'movieId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.410" endtime="20200301 16:41:55.411"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/addRelationship</arg>
+<arg>data=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.411" level="INFO">PUT Request using : uri=/api/v1/addRelationship, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"actorId": "notexist", "movieId": "notexist"} 
+json=None</msg>
+<msg timestamp="20200301 16:41:55.414" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.411" endtime="20200301 16:41:55.414"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.415" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.415" endtime="20200301 16:41:55.415"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.409" endtime="20200301 16:41:55.415" critical="yes"></status>
+</test>
+<test id="s1-t25" name="TestGetActor200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.415" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.415" endtime="20200301 16:41:55.416"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.416" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.416" endtime="20200301 16:41:55.416"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.416" level="INFO">${params} = {'actorId': 'nm1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.416" endtime="20200301 16:41:55.416"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getActor</arg>
+<arg>headers=${header}</arg>
+<arg>json=${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.417" level="INFO">GET Request using : uri=/api/v1/getActor, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm1'}</msg>
+<msg timestamp="20200301 16:41:55.426" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.416" endtime="20200301 16:41:55.426"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.426" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.426" endtime="20200301 16:41:55.426"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.415" endtime="20200301 16:41:55.426" critical="yes"></status>
+</test>
+<test id="s1-t26" name="TestGetActorExistsButNoMovies200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.427" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.427" endtime="20200301 16:41:55.427"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.427" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.427" endtime="20200301 16:41:55.428"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.428" level="INFO">${params} = {'actorId': 'nm2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.428" endtime="20200301 16:41:55.428"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getActor</arg>
+<arg>headers=${header}</arg>
+<arg>json=${params}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.428" level="INFO">GET Request using : uri=/api/v1/getActor, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm2'}</msg>
+<msg timestamp="20200301 16:41:55.432" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.428" endtime="20200301 16:41:55.432"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.433" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.432" endtime="20200301 16:41:55.433"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.427" endtime="20200301 16:41:55.433" critical="yes"></status>
+</test>
+<test id="s1-t27" name="TestGetActorBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.433" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.433" endtime="20200301 16:41:55.434"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.434" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.434" endtime="20200301 16:41:55.434"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>act=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.434" level="INFO">${params} = {'act': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.434" endtime="20200301 16:41:55.434"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getActor</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.434" level="INFO">GET Request using : uri=/api/v1/getActor, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'act': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.437" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.434" endtime="20200301 16:41:55.437"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.438" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.437" endtime="20200301 16:41:55.438"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.433" endtime="20200301 16:41:55.438" critical="yes"></status>
+</test>
+<test id="s1-t28" name="TestGetActorNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.438" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.438" endtime="20200301 16:41:55.438"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.439" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.438" endtime="20200301 16:41:55.439"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.439" level="INFO">${params} = {'actorId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.439" endtime="20200301 16:41:55.439"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getActor</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.439" level="INFO">GET Request using : uri=/api/v1/getActor, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.443" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.439" endtime="20200301 16:41:55.443"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.443" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.443" endtime="20200301 16:41:55.443"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.438" endtime="20200301 16:41:55.443" critical="yes"></status>
+</test>
+<test id="s1-t29" name="TestGetMovie200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.444" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.444" endtime="20200301 16:41:55.444"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.445" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.444" endtime="20200301 16:41:55.445"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>movieId=tt1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.445" level="INFO">${params} = {'movieId': 'tt1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.445" endtime="20200301 16:41:55.445"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getMovie</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.445" level="INFO">GET Request using : uri=/api/v1/getMovie, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'movieId': 'tt1'}</msg>
+<msg timestamp="20200301 16:41:55.454" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.445" endtime="20200301 16:41:55.454"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.455" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.455" endtime="20200301 16:41:55.455"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.444" endtime="20200301 16:41:55.455" critical="yes"></status>
+</test>
+<test id="s1-t30" name="TestGetMovieNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.456" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.455" endtime="20200301 16:41:55.456"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.456" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.456" endtime="20200301 16:41:55.456"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>movieId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.456" level="INFO">${params} = {'movieId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.456" endtime="20200301 16:41:55.456"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getMovie</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.457" level="INFO">GET Request using : uri=/api/v1/getMovie, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'movieId': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.460" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.456" endtime="20200301 16:41:55.460"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.460" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.460" endtime="20200301 16:41:55.460"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.455" endtime="20200301 16:41:55.460" critical="yes"></status>
+</test>
+<test id="s1-t31" name="TestGetMovieBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.461" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.461" endtime="20200301 16:41:55.461"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.461" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.461" endtime="20200301 16:41:55.461"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>movie=742053</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.461" level="INFO">${params} = {'movie': '742053'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.461" endtime="20200301 16:41:55.462"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/getMovie</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.462" level="INFO">GET Request using : uri=/api/v1/getMovie, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'movie': '742053'}</msg>
+<msg timestamp="20200301 16:41:55.464" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.462" endtime="20200301 16:41:55.464"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.464" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.464" endtime="20200301 16:41:55.464"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.460" endtime="20200301 16:41:55.465" critical="yes"></status>
+</test>
+<test id="s1-t32" name="TestGetRelationship200True">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.465" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.465" endtime="20200301 16:41:55.465"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.465" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.465" endtime="20200301 16:41:55.466"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+<arg>movieId=mv001</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.466" level="INFO">${params} = {'actorId': 'nm0000102', 'movieId': 'mv001'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.466" endtime="20200301 16:41:55.466"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/hasRelationship</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.466" level="INFO">GET Request using : uri=/api/v1/hasRelationship, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm0000102', 'movieId': 'mv001'}</msg>
+<msg timestamp="20200301 16:41:55.470" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.466" endtime="20200301 16:41:55.470"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.470" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.470" endtime="20200301 16:41:55.470"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>nm0000102</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.471" endtime="20200301 16:41:55.471"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>mv001</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.471" endtime="20200301 16:41:55.471"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>${true}</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.471" endtime="20200301 16:41:55.472"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.465" endtime="20200301 16:41:55.472" critical="yes"></status>
+</test>
+<test id="s1-t33" name="TestGetRelationshipIncompleteBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.472" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.472" endtime="20200301 16:41:55.472"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.473" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.472" endtime="20200301 16:41:55.473"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actor=9999</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.473" level="INFO">${params} = {'actor': '9999'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.473" endtime="20200301 16:41:55.473"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/hasRelationship</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.473" level="INFO">GET Request using : uri=/api/v1/hasRelationship, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actor': '9999'}</msg>
+<msg timestamp="20200301 16:41:55.476" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.473" endtime="20200301 16:41:55.476"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.476" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.476" endtime="20200301 16:41:55.477"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.472" endtime="20200301 16:41:55.477" critical="yes"></status>
+</test>
+<test id="s1-t34" name="TestGetRelationshipBothNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.477" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.477" endtime="20200301 16:41:55.477"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.478" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.477" endtime="20200301 16:41:55.478"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+<arg>movieId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.478" level="INFO">${params} = {'actorId': 'notexist', 'movieId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.478" endtime="20200301 16:41:55.478"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/hasRelationship</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.478" level="INFO">GET Request using : uri=/api/v1/hasRelationship, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'notexist', 'movieId': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.482" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.478" endtime="20200301 16:41:55.482"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>404</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.482" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.482" endtime="20200301 16:41:55.482"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.477" endtime="20200301 16:41:55.482" critical="yes"></status>
+</test>
+<test id="s1-t35" name="TestGetRelationshipNoRel200False">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.483" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.483" endtime="20200301 16:41:55.483"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.483" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.483" endtime="20200301 16:41:55.483"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm2</arg>
+<arg>movieId=tt2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.484" level="INFO">${params} = {'actorId': 'nm2', 'movieId': 'tt2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.484" endtime="20200301 16:41:55.484"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/hasRelationship</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.484" level="INFO">GET Request using : uri=/api/v1/hasRelationship, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm2', 'movieId': 'tt2'}</msg>
+<msg timestamp="20200301 16:41:55.488" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.484" endtime="20200301 16:41:55.488"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.489" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.488" endtime="20200301 16:41:55.489"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>nm2</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.489" endtime="20200301 16:41:55.489"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>tt2</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.489" endtime="20200301 16:41:55.489"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>${false}</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.490" endtime="20200301 16:41:55.490"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.483" endtime="20200301 16:41:55.490" critical="yes"></status>
+</test>
+<test id="s1-t36" name="TestGetBaconNumber200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.490" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.490" endtime="20200301 16:41:55.491"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.491" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.491" endtime="20200301 16:41:55.491"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm1</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.491" level="INFO">${params} = {'actorId': 'nm1'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.491" endtime="20200301 16:41:55.491"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconNumber</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.492" level="INFO">GET Request using : uri=/api/v1/computeBaconNumber, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm1'}</msg>
+<msg timestamp="20200301 16:41:55.502" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.491" endtime="20200301 16:41:55.502"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.502" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.502" endtime="20200301 16:41:55.502"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.503" endtime="20200301 16:41:55.503"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.490" endtime="20200301 16:41:55.503" critical="yes"></status>
+</test>
+<test id="s1-t37" name="Test2GetBaconNumberKevinBacon200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.503" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.503" endtime="20200301 16:41:55.504"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.504" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.504" endtime="20200301 16:41:55.504"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm0000102</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.504" level="INFO">${params} = {'actorId': 'nm0000102'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.504" endtime="20200301 16:41:55.504"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconNumber</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.504" level="INFO">GET Request using : uri=/api/v1/computeBaconNumber, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm0000102'}</msg>
+<msg timestamp="20200301 16:41:55.507" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.504" endtime="20200301 16:41:55.507"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.507" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.507" endtime="20200301 16:41:55.507"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.508" level="FAIL">Dictionary does not contain value '0'.</msg>
+<status status="FAIL" starttime="20200301 16:41:55.507" endtime="20200301 16:41:55.508"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="FAIL" starttime="20200301 16:41:55.503" endtime="20200301 16:41:55.508" critical="yes">Dictionary does not contain value '0'.</status>
+</test>
+<test id="s1-t38" name="TestGetBaconNumberBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.509" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.508" endtime="20200301 16:41:55.509"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.509" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.509" endtime="20200301 16:41:55.509"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actor=1001</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.509" level="INFO">${params} = {'actor': '1001'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.509" endtime="20200301 16:41:55.509"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconNumber</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.510" level="INFO">GET Request using : uri=/api/v1/computeBaconNumber, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actor': '1001'}</msg>
+<msg timestamp="20200301 16:41:55.512" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.509" endtime="20200301 16:41:55.512"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.512" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.512" endtime="20200301 16:41:55.512"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.508" endtime="20200301 16:41:55.513" critical="yes"></status>
+</test>
+<test id="s1-t39" name="TestGetBaconNumberIdNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.513" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.513" endtime="20200301 16:41:55.513"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.513" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.513" endtime="20200301 16:41:55.514"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.514" level="INFO">${params} = {'actorId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.514" endtime="20200301 16:41:55.514"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconNumber</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.514" level="INFO">GET Request using : uri=/api/v1/computeBaconNumber, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.517" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.514" endtime="20200301 16:41:55.517"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.518" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20200301 16:41:55.518" level="FAIL">404 != 400</msg>
+<status status="FAIL" starttime="20200301 16:41:55.517" endtime="20200301 16:41:55.518"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="FAIL" starttime="20200301 16:41:55.513" endtime="20200301 16:41:55.518" critical="yes">404 != 400</status>
+</test>
+<test id="s1-t40" name="TestGetBaconNumberPathNoExist200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.519" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.519" endtime="20200301 16:41:55.519"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.519" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.519" endtime="20200301 16:41:55.519"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.519" level="INFO">${params} = {'actorId': 'nm2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.519" endtime="20200301 16:41:55.519"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconNumber</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.520" level="INFO">GET Request using : uri=/api/v1/computeBaconNumber, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm2'}</msg>
+<msg timestamp="20200301 16:41:55.524" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.520" endtime="20200301 16:41:55.524"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.525" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.524" endtime="20200301 16:41:55.525"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.518" endtime="20200301 16:41:55.525" critical="yes"></status>
+</test>
+<test id="s1-t41" name="TestBaconPath200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.525" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.525" endtime="20200301 16:41:55.526"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.526" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.526" endtime="20200301 16:41:55.526"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm3</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.526" level="INFO">${params} = {'actorId': 'nm3'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.526" endtime="20200301 16:41:55.526"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconPath</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.526" level="INFO">GET Request using : uri=/api/v1/computeBaconPath, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm3'}</msg>
+<msg timestamp="20200301 16:41:55.539" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.526" endtime="20200301 16:41:55.539"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.539" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.539" endtime="20200301 16:41:55.539"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp.json()}</arg>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200301 16:41:55.539" endtime="20200301 16:41:55.540"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.525" endtime="20200301 16:41:55.540" critical="yes"></status>
+</test>
+<test id="s1-t42" name="TestBaconPathBadBodyParam400">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.540" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.540" endtime="20200301 16:41:55.540"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.541" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.541" endtime="20200301 16:41:55.541"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actor=3333</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.541" level="INFO">${params} = {'actor': '3333'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.541" endtime="20200301 16:41:55.541"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconPath</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.541" level="INFO">GET Request using : uri=/api/v1/computeBaconPath, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actor': '3333'}</msg>
+<msg timestamp="20200301 16:41:55.544" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.541" endtime="20200301 16:41:55.544"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.544" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.544" endtime="20200301 16:41:55.544"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.540" endtime="20200301 16:41:55.545" critical="yes"></status>
+</test>
+<test id="s1-t43" name="TestBaconPathIdNoExist404">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.545" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.545" endtime="20200301 16:41:55.545"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.546" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.545" endtime="20200301 16:41:55.546"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=notexist</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.546" level="INFO">${params} = {'actorId': 'notexist'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.546" endtime="20200301 16:41:55.546"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconPath</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.546" level="INFO">GET Request using : uri=/api/v1/computeBaconPath, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'notexist'}</msg>
+<msg timestamp="20200301 16:41:55.550" level="INFO">${resp} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.546" endtime="20200301 16:41:55.550"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.550" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.550" endtime="20200301 16:41:55.550"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.545" endtime="20200301 16:41:55.550" critical="yes"></status>
+</test>
+<test id="s1-t44" name="TestBaconPathPathNoExist200">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.551" level="INFO">Creating Session using : alias=localhost, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200301 16:41:55.551" endtime="20200301 16:41:55.551"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.551" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.551" endtime="20200301 16:41:55.551"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>actorId=nm2</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.551" level="INFO">${params} = {'actorId': 'nm2'}</msg>
+<status status="PASS" starttime="20200301 16:41:55.551" endtime="20200301 16:41:55.551"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>/api/v1/computeBaconPath</arg>
+<arg>json=${params}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20200301 16:41:55.552" level="INFO">GET Request using : uri=/api/v1/computeBaconPath, params=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data=None 
+json={'actorId': 'nm2'}</msg>
+<msg timestamp="20200301 16:41:55.556" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.552" endtime="20200301 16:41:55.556"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20200301 16:41:55.556" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200301 16:41:55.556" endtime="20200301 16:41:55.556"></status>
+</kw>
+<timeout value="30 seconds"></timeout>
+<status status="PASS" starttime="20200301 16:41:55.550" endtime="20200301 16:41:55.556" critical="yes"></status>
+</test>
+<status status="FAIL" starttime="20200301 16:41:55.001" endtime="20200301 16:41:55.557"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="42" fail="2">Critical Tests</stat>
+<stat pass="42" fail="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="42" fail="2" id="s1" name="testPutAndGetTests">testPutAndGetTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
